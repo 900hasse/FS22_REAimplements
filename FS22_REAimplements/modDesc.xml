@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="63">
+    <author>900Hasse</author>
+	<version>1.0.0.0</version>
+	<title>
+        <en>REA22 Implements</en>
+    </title>
+    <description>
+        <en>
+<![CDATA[The goal of this mod is to make the game feel more realistic and
+customizing the vehicle for the task more rewarding.
+The goal is to make the mod universal.
+This mod supports multiplayer and dedicated servers.
+No changes in XML is needed. Some data from XML is overwritten!
+
+Pulling force for plows, cultivators, roller and sowingmachines is affected by ground type and state.
+Balers, loading wagons and harvesters uses power based on fillspeed and density of material.
+
+For example:
+Seeding directly into the stubble demands more power then seeding a cultivated field.
+Running a roller in a plowed field demands more power then a seedad field.
+Harvesting higher yeild demands more power then a low yeilding field.
+Lighter materials demands less power then heavy, baling hay is easier then grass.
+
+The force applied to pulled tools is now applied on the correct place.
+Left or right side can get less or more force applied deending in the ground type and state on each side.
+Force is also applied from the sides to make implements more prone to follow their own path.
+]]>
+</en>
+<de>
+<![CDATA[Das Ziel dieses Mods ist es, das Spiel realistischer zu machen und
+das Anpassen des Fahrzeugs für die Aufgabe lohnender.
+Das Ziel ist es, den Mod universell zu machen.
+Dieser Mod unterstützt Multiplayer und dedizierte Server.
+Es sind keine XML-Änderungen erforderlich. Einige Daten aus XML werden überschrieben!
+
+Die Zugkraft für Pflüge, Grubber, Walzen- und Sämaschinen wird von Bodenart und Bodenbeschaffenheit beeinflusst.
+Ballenpressen, Ladewagen und Erntemaschinen verbrauchen Leistung basierend auf Füllgeschwindigkeit und Materialdichte.
+
+Beispielsweise:
+Das Säen direkt in die Stoppel erfordert mehr Kraft als das Säen eines kultivierten Feldes.
+Der Betrieb einer Walze in einem gepflügten Feld erfordert mehr Leistung als ein Saatfeld.
+Das Ernten eines höheren Ertrags erfordert mehr Leistung als ein Feld mit niedrigem Ertrag.
+Leichtere Materialien erfordern weniger Kraft als schwere, Heuballen ist einfacher als Gras.
+
+Die auf gezogene Werkzeuge aufgebrachte Kraft wird nun an der richtigen Stelle aufgebracht.
+Die linke oder rechte Seite kann je nach Bodenart und Zustand auf jeder Seite weniger oder mehr Kraft aufgebracht werden.
+Die Kraft wird auch von den Seiten aufgebracht, um die Anbaugeräte anfälliger dafür zu machen, ihrem eigenen Weg zu folgen.
+]]>
+</de>
+    </description>
+	<l10n>
+	</l10n>
+    <iconFilename>icon_REAimplements.dds</iconFilename>
+	<multiplayer supported="true" />
+    <extraSourceFiles>
+        <sourceFile filename="REAimplements.lua" />
+    </extraSourceFiles>
+</modDesc>
