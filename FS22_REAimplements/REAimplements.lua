@@ -122,8 +122,8 @@ function REAimplements:update(dt)
 			REAimplements.ForceFactors = {};
 			local ToolType = 0;
 
-			print("---------------------------")
-			print("REA implements force factors")
+			REAimplements:PrintDebug("---------------------------")
+			REAimplements:PrintDebug("REA implements force factors")
 			-- Plow
 			ToolType = REAimplements.Plow;
 			REAimplements:AddForceFactor(REAimplements.ForceFactors,ToolType,REAimplements.OffField,1.3);
@@ -214,16 +214,16 @@ function REAimplements:update(dt)
 			REAimplements:AddForceFactor(REAimplements.ForceFactors,ToolType,REAimplements.Grass,1.25);
 			REAimplements:AddForceFactor(REAimplements.ForceFactors,ToolType,REAimplements.GrassCut,1.15);
 			REAimplements:AddForceFactor(REAimplements.ForceFactors,ToolType,REAimplements.NoTerrainValue,1.0);
-			print("REA implements power need for filling 100l/s with a mass of 1000kg/m2")
+			REAimplements:PrintDebug("REA implements power need for filling 100l/s with a mass of 1000kg/m2")
 			-- Power needed for balers and foragewagons to fill 100l/s for filltype with a mass of 1 ton/m2
 			REAimplements.FillspeedPowerNeed = {};
 			REAimplements.FillspeedPowerNeed[REAimplements.Combine] = 650;
 			REAimplements.FillspeedPowerNeed[REAimplements.ForageWagon] = 500;
 			REAimplements.FillspeedPowerNeed[REAimplements.Baler] = 450;
-			print("Harvesters " .. REAimplements.FillspeedPowerNeed[REAimplements.Combine] .. "hp");
-			print("Forage wagon " .. REAimplements.FillspeedPowerNeed[REAimplements.ForageWagon] .. "hp");
-			print("Balers " .. REAimplements.FillspeedPowerNeed[REAimplements.Baler] .. "hp");
-			print("---------------------------")
+			REAimplements:PrintDebug("Harvesters " .. REAimplements.FillspeedPowerNeed[REAimplements.Combine] .. "hp");
+			REAimplements:PrintDebug("Forage wagon " .. REAimplements.FillspeedPowerNeed[REAimplements.ForageWagon] .. "hp");
+			REAimplements:PrintDebug("Balers " .. REAimplements.FillspeedPowerNeed[REAimplements.Baler] .. "hp");
+			REAimplements:PrintDebug("---------------------------")
 			-- Global values set
 			REAimplements.GlobalValuesSet = true
 		end;
@@ -283,7 +283,7 @@ function REAimplements:AddForceFactor(ForceFactorTable,ToolType,GroundType,Facto
 		ForceFactorTable[ToolType].Factor[GroundType] = Factor;
 	end;
 	-- Print factor
-	print(REAimplements.ToolTypeNames[ToolType] .. " on " .. REAimplements.TerrainNames[GroundType] .. " is " .. Factor);
+	REAimplements:PrintDebug(REAimplements.ToolTypeNames[ToolType] .. " on " .. REAimplements.TerrainNames[GroundType] .. " is " .. Factor);
 end
 
 
@@ -349,8 +349,8 @@ function REAimplements:SetToolType(vehicle)
 			ToolForceType = "not applied";
 		end;
 		--Print info
-		print("----------------------")
-		print("REA implements detected " .. vehicle:getFullName() .. " as a " .. REAimplements.ToolTypeNames[vehicle.ToolType] .. ", power need " .. ToolForceType)
+		REAimplements:PrintDebug("----------------------")
+		REAimplements:PrintDebug("REA implements detected " .. vehicle:getFullName() .. " as a " .. REAimplements.ToolTypeNames[vehicle.ToolType] .. ", power need " .. ToolForceType)
 	end;
 end
 
@@ -600,7 +600,7 @@ function REAimplements:CreateForcePositions(Vehicle,ToolType,PowerConsumer,WorkA
 							setRotation(ForceParent,0,0,0);
 							setScale(ForceParent,1,1,1);
 							ParentNode = ForceParent;
-							print("REA implements: " .. Vehicle:getFullName() .. " as a " .. REAimplements.ToolTypeNames[Vehicle.ToolType] .. " uses wheel as a reference")
+							REAimplements:PrintDebug("REA implements: " .. Vehicle:getFullName() .. " as a " .. REAimplements.ToolTypeNames[Vehicle.ToolType] .. " uses wheel as a reference")
 						end;
 					end;
 				end;
@@ -1357,6 +1357,16 @@ function PowerConsumer:onUpdate(dt, isActiveForInput, isActiveForInputIgnoreSele
             spec.turnOnPeakPowerTimer = spec.turnOnPeakPowerTimer - dt
         end
     end
+end
+
+
+-----------------------------------------------------------------------------------	
+-- Function to print debug values
+-----------------------------------------------------------------------------------
+function REAimplements:PrintDebug(text)
+	if REAimplements.Debug then
+		print(text);
+	end;
 end
 
 

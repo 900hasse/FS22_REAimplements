@@ -17,14 +17,14 @@ Pulling force for plows, cultivators, roller and sowingmachines is affected by g
 Balers, loading wagons and harvesters uses power based on fillspeed and density of material.
 
 For example:
-Seeding directly into the stubble demands more power then seeding a cultivated field.
-Running a roller in a plowed field demands more power then a seedad field.
-Harvesting higher yeild demands more power then a low yeilding field.
-Lighter materials demands less power then heavy, baling hay is easier then grass.
+- Seeding directly into the stubble demands more power then seeding a cultivated field.
+- Running a roller in a plowed field demands more power then a seedad field.
+- Harvesting higher yeild demands more power then a low yeilding field.
+- Lighter materials demands less power then heavy, baling hay is easier then grass.
 
 The force applied to pulled tools is now applied on the correct place.
-Left or right side can get less or more force applied deending in the ground type and state on each side.
-Force is also applied from the sides to make implements more prone to follow their own path.
+- Left or right side can get less or more force applied deending in the ground type and state on each side.
+- Force is also applied from the sides to make implements more prone to follow their own path.
 ]]>
 </en>
 <de>
@@ -38,14 +38,14 @@ Die Zugkraft für Pflüge, Grubber, Walzen- und Sämaschinen wird von Bodenart u
 Ballenpressen, Ladewagen und Erntemaschinen verbrauchen Leistung basierend auf Füllgeschwindigkeit und Materialdichte.
 
 Beispielsweise:
-Das Säen direkt in die Stoppel erfordert mehr Kraft als das Säen eines kultivierten Feldes.
-Der Betrieb einer Walze in einem gepflügten Feld erfordert mehr Leistung als ein Saatfeld.
-Das Ernten eines höheren Ertrags erfordert mehr Leistung als ein Feld mit niedrigem Ertrag.
-Leichtere Materialien erfordern weniger Kraft als schwere, Heuballen ist einfacher als Gras.
+- Das Säen direkt in die Stoppel erfordert mehr Kraft als das Säen eines kultivierten Feldes.
+- Der Betrieb einer Walze in einem gepflügten Feld erfordert mehr Leistung als ein Saatfeld.
+- Das Ernten eines höheren Ertrags erfordert mehr Leistung als ein Feld mit niedrigem Ertrag.
+- Leichtere Materialien erfordern weniger Kraft als schwere, Heuballen ist einfacher als Gras.
 
 Die auf gezogene Werkzeuge aufgebrachte Kraft wird nun an der richtigen Stelle aufgebracht.
-Die linke oder rechte Seite kann je nach Bodenart und Zustand auf jeder Seite weniger oder mehr Kraft aufgebracht werden.
-Die Kraft wird auch von den Seiten aufgebracht, um die Anbaugeräte anfälliger dafür zu machen, ihrem eigenen Weg zu folgen.
+- Die linke oder rechte Seite kann je nach Bodenart und Zustand auf jeder Seite weniger oder mehr Kraft aufgebracht werden.
+- Die Kraft wird auch von den Seiten aufgebracht, um die Anbaugeräte anfälliger dafür zu machen, ihrem eigenen Weg zu folgen.
 ]]>
 </de>
     </description>
