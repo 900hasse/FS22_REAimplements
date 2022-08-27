@@ -1085,7 +1085,9 @@ function REAimplements:UpdateGroundTypeNodes(ToolType,PowerConsumer,LeftNode,Rig
 
 	-- Update position of ground type nodes
 	for Index=1, NumGroundType do
-		setTranslation(PowerConsumer.GroundTypeNodes[Index],(StepX*(Index-1))+(PlowOffset*PlowOffsetDir),StepY*(Index-1),(StepZ*(Index-1))+OffsetInFront);
+		if PowerConsumer.GroundTypeNodes[Index] ~= nil then
+			setTranslation(PowerConsumer.GroundTypeNodes[Index],(StepX*(Index-1))+(PlowOffset*PlowOffsetDir),StepY*(Index-1),(StepZ*(Index-1))+OffsetInFront);
+		end
 	end;
 end
 
