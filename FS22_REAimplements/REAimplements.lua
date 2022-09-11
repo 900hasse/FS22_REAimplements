@@ -3,7 +3,7 @@
 -- author: 900Hasse
 -- date: 23.11.2022
 --
--- V1.0.0.0
+-- V1.0.1.0
 --
 -----------------------------------------
 -- TO DO
@@ -61,9 +61,10 @@ function REAimplements:update(dt)
 			REAimplements.Roller = 3;
 			REAimplements.SowingMachine = 4;
 			REAimplements.Combine = 5;
-			REAimplements.ForageWagon = 6;
-			REAimplements.Baler = 7;
-			REAimplements.Mulcher = 8;
+			REAimplements.CombineRootcrops = 6;
+			REAimplements.ForageWagon = 7;
+			REAimplements.Baler = 8;
+			REAimplements.Mulcher = 9;
 
 			REAimplements.ToolTypeNames = {};
 			REAimplements.ToolTypeNames[REAimplements.NoTool] = "No tool";
@@ -72,6 +73,7 @@ function REAimplements:update(dt)
 			REAimplements.ToolTypeNames[REAimplements.Roller] = "Roller";
 			REAimplements.ToolTypeNames[REAimplements.SowingMachine] = "Sowing machine";
 			REAimplements.ToolTypeNames[REAimplements.Combine] = "Combine";
+			REAimplements.ToolTypeNames[REAimplements.CombineRootcrops] = "Combine rootcrop";
 			REAimplements.ToolTypeNames[REAimplements.ForageWagon] = "Forage wagon";
 			REAimplements.ToolTypeNames[REAimplements.Baler] = "Baler";
 			REAimplements.ToolTypeNames[REAimplements.Mulcher] = "Mulcher";
@@ -218,9 +220,11 @@ function REAimplements:update(dt)
 			-- Power needed for balers and foragewagons to fill 100l/s for filltype with a mass of 1 ton/m2
 			REAimplements.FillspeedPowerNeed = {};
 			REAimplements.FillspeedPowerNeed[REAimplements.Combine] = 650;
+			REAimplements.FillspeedPowerNeed[REAimplements.CombineRootcrops] = 250;
 			REAimplements.FillspeedPowerNeed[REAimplements.ForageWagon] = 500;
 			REAimplements.FillspeedPowerNeed[REAimplements.Baler] = 450;
 			REAimplements:PrintDebug("Harvesters " .. REAimplements.FillspeedPowerNeed[REAimplements.Combine] .. "hp");
+			REAimplements:PrintDebug("Harvesters for rootcrop " .. REAimplements.FillspeedPowerNeed[REAimplements.CombineRootcrops] .. "hp");
 			REAimplements:PrintDebug("Forage wagon " .. REAimplements.FillspeedPowerNeed[REAimplements.ForageWagon] .. "hp");
 			REAimplements:PrintDebug("Balers " .. REAimplements.FillspeedPowerNeed[REAimplements.Baler] .. "hp");
 			REAimplements:PrintDebug("---------------------------")
@@ -329,6 +333,18 @@ function REAimplements:SetToolType(vehicle)
 		-- Combine
 		if vehicle.spec_combine ~= nil then
 			vehicle.ToolType = REAimplements.Combine;
+			if vehicle.spec_fillUnit ~= nil then
+				REAimplements:PrintDebug(vehicle:getFullName() .. "is a combine and have a fillunit")
+				for _, FillUnit in pairs(vehicle.spec_fillUnit.fillUnits) do
+					REAimplements:PrintDebug("combine fillunit filltype is: " .. FillUnit.fillType)
+					REAimplements:PrintDebug("Sugarbeet: " .. FillType.SUGARBEET)
+					REAimplements:PrintDebug("Potato: " .. FillType.POTATO)
+					if FillUnit.fillType == FillType.SUGARBEET or FillUnit.fillType == FillType.POTATO then 
+						vehicle.ToolType = REAimplements.CombineRootcrops;
+						break;
+					end;
+				end;
+			end;
 			vehicle.ForceType = REAimplements.ForceTypeFillspeed;
 			ToolForceType = ToolForceTypeFillspeed;
 		-- Forage wagon
@@ -1375,7 +1391,7 @@ if REAimplements.ModActivated == nil then
 	addModEventListener(REAimplements);
 
 	REAimplements.ModActivated = true;
-	REAimplements.Debug = false;
+	REAimplements.Debug = true;
 	REAimplements.FilePath = g_currentModDirectory;
 	print("mod activated")
 

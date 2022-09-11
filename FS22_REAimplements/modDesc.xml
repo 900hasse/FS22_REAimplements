@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="63">
     <author>900Hasse</author>
-	<version>1.0.0.0</version>
+	<version>1.0.1.0</version>
 	<title>
         <en>REA22 Implements</en>
     </title>
@@ -25,6 +25,10 @@ For example:
 The force applied to pulled tools is now applied on the correct place.
 - Left or right side can get less or more force applied deending in the ground type and state on each side.
 - Force is also applied from the sides to make implements more prone to follow their own path.
+
+1.0.1.0
+- Harvesters for sugerbeets and potatos no longer get to much power applied.
+
 ]]>
 </en>
 <de>
