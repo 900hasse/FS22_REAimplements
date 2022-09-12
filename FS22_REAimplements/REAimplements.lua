@@ -220,7 +220,7 @@ function REAimplements:update(dt)
 			-- Power needed for balers and foragewagons to fill 100l/s for filltype with a mass of 1 ton/m2
 			REAimplements.FillspeedPowerNeed = {};
 			REAimplements.FillspeedPowerNeed[REAimplements.Combine] = 650;
-			REAimplements.FillspeedPowerNeed[REAimplements.CombineRootcrops] = 250;
+			REAimplements.FillspeedPowerNeed[REAimplements.CombineRootcrops] = 300;
 			REAimplements.FillspeedPowerNeed[REAimplements.ForageWagon] = 500;
 			REAimplements.FillspeedPowerNeed[REAimplements.Baler] = 450;
 			REAimplements:PrintDebug("Harvesters " .. REAimplements.FillspeedPowerNeed[REAimplements.Combine] .. "hp");
@@ -334,12 +334,16 @@ function REAimplements:SetToolType(vehicle)
 		if vehicle.spec_combine ~= nil then
 			vehicle.ToolType = REAimplements.Combine;
 			if vehicle.spec_fillUnit ~= nil then
-				REAimplements:PrintDebug(vehicle:getFullName() .. "is a combine and have a fillunit")
 				for _, FillUnit in pairs(vehicle.spec_fillUnit.fillUnits) do
-					REAimplements:PrintDebug("combine fillunit filltype is: " .. FillUnit.fillType)
-					REAimplements:PrintDebug("Sugarbeet: " .. FillType.SUGARBEET)
-					REAimplements:PrintDebug("Potato: " .. FillType.POTATO)
 					if FillUnit.fillType == FillType.SUGARBEET or FillUnit.fillType == FillType.POTATO then 
+						vehicle.ToolType = REAimplements.CombineRootcrops;
+						break;
+					end;
+				end;
+			end;
+			if vehicle.spec_cutter ~= nil then
+				for _, FruitTypes in pairs(vehicle.spec_cutter.fruitTypes) do
+					if FruitTypes == FruitType.SUGARBEET or FruitTypes == FruitType.POTATO then
 						vehicle.ToolType = REAimplements.CombineRootcrops;
 						break;
 					end;
