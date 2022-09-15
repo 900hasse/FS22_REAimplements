@@ -1400,7 +1400,7 @@ if REAimplements.ModActivated == nil then
 	addModEventListener(REAimplements);
 
 	REAimplements.ModActivated = true;
-	REAimplements.Debug = true;
+	REAimplements.Debug = false;
 	REAimplements.FilePath = g_currentModDirectory;
 	print("mod activated")
 
