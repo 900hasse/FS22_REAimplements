@@ -1095,7 +1095,12 @@ function REAimplements:UpdateGroundTypeNodes(ToolType,PowerConsumer,LeftNode,Rig
 		StepZ = (z / (NumGroundType-1)) * Dir;
 	end;
 
-	-- Create ground type node
+	-- Create ground type node if first call or if there is change in width
+	if PowerConsumer.GroundTypeNodes ~= nil then
+		if NumGroundType ~= table.getn(PowerConsumer.GroundTypeNodes) then
+			PowerConsumer.GroundTypeNodes = nil;
+		end;
+	end;
 	if PowerConsumer.GroundTypeNodes == nil then
 		PowerConsumer.GroundTypeNodes = {};
 		for Index=1, NumGroundType do

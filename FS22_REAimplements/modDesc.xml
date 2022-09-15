@@ -28,7 +28,7 @@ The force applied to pulled tools is now applied on the correct place.
 
 1.0.1.0
 - Harvesters for sugerbeets and potatos no longer get to much power applied.
-
+- If width of implement was changed groundstate node could cause errors, this is fixed.
 ]]>
 </en>
 <de>
