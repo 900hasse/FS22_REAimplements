@@ -50,6 +50,10 @@ Beispielsweise:
 Die auf gezogene Werkzeuge aufgebrachte Kraft wird nun an der richtigen Stelle aufgebracht.
 - Die linke oder rechte Seite kann je nach Bodenart und Zustand auf jeder Seite weniger oder mehr Kraft aufgebracht werden.
 - Die Kraft wird auch von den Seiten aufgebracht, um die Anbaugeräte anfälliger dafür zu machen, ihrem eigenen Weg zu folgen.
+
+1.0.1.0
+- Erntemaschinen für Zuckerrüben und Kartoffeln bekommen nicht mehr zu viel Kraft zugeführt.
+- Wenn die Breite des Anbaugeräts geändert wurde, konnte der Grundzustandsknoten Fehler verursachen, dies wurde behoben.
 ]]>
 </de>
     </description>
